@@ -1,0 +1,2 @@
+# easymr-benchmarks
+EasyMapReduce benchmarks
