@@ -1,2 +1,2 @@
-# easymr-benchmarks
-EasyMapReduce benchmarks
+# EasyMapReduce 
+EasyMapReduce benchmark containers.
