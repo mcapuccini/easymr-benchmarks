@@ -12,7 +12,7 @@ object VS {
       .setAppName("Virtual Screening")
     val sc = new SparkContext(conf)
 
-    val mols = sc.textFile(args(0))
+    val mols = sc.textFile(args(0)).sample(false, args(1).toDouble)
     val hitsParallel = new EasyMapReduce(mols)
       .setInputMountPoint("/input.sdf")
       .setOutputMountPoint("/output.sdf")
