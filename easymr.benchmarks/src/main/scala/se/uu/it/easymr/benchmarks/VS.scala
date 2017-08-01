@@ -11,6 +11,9 @@ object VS {
     val conf = new SparkConf()
       .setAppName("Virtual Screening")
     val sc = new SparkContext(conf)
+    
+    // Set custom delimiter
+    sc.hadoopConfiguration.set("textinputformat.record.delimiter", "\n$$$$\n")
 
     val mols = sc.textFile(args(0)).sample(false, args(1).toDouble)
     val hitsParallel = new EasyMapReduce(mols)
