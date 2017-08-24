@@ -16,7 +16,7 @@ object CP {
       .setAppName("CP sign")
     val sc = new SparkContext(conf)
 
-    val rdd = sc.parallelize(1 to args(0).toInt).map(_.toString)
+    val rdd = sc.parallelize(1 to args(0).toInt, args(1).toInt).map(_.toString)
 
     val res = new EasyMapReduce(rdd)
       .setOutputMountPoint("/out.txt")
