@@ -1,4 +1,6 @@
 data.sdf
+data_train.sdf
+data_test.sdf
 cpsign-0.5.7.jar
 cpsign0.5-standard.license
 
