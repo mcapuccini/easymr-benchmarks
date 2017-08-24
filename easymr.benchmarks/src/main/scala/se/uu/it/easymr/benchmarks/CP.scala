@@ -48,7 +48,7 @@ object CP {
     // Write model to file
     val base64 = new BASE64Decoder()
     val modelBytes = base64.decodeBuffer(res)
-    val fos = new FileOutputStream("pathname");
+    val fos = new FileOutputStream("model.cpsign")
     fos.write(modelBytes)
     fos.close()
 
