@@ -24,7 +24,7 @@ object CP {
       .setReduceInputMountPoint2("/model2.txt")
       .map(
         imageName = "mcapuccini/cpsign",
-        command = "java -Xms512m -Xmx8192m -jar cpsign-0.5.7.jar train " +
+        command = "java -Xms512m -Xmx4096m -jar cpsign-0.5.7.jar train " +
           "-t data_train.sdf " +
           "-mn out " +
           "-mo /tmp.cpsign " +
@@ -38,7 +38,7 @@ object CP {
         imageName = "mcapuccini/cpsign",
         command = "base64 -d < /model1.txt > /model1.cpsign && " +
           "base64 -d < /model2.txt > /model2.cpsign && " +
-          "java -Xms512m -Xmx8192m -jar cpsign-0.5.7.jar aggregate " +
+          "java -Xms512m -Xmx4096m -jar cpsign-0.5.7.jar aggregate " +
           "-m /model1.cpsign /model2.cpsign " +
           "-mn out " +
           "-mo /tmp.cpsign " +
