@@ -32,6 +32,7 @@ object CP {
           "--labels 0 1 " +
           "-rn class " +
           "--license cpsign0.5-standard.license && " +
+          "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
       .reduce(
         imageName = "mcapuccini/cpsign",
@@ -43,6 +44,7 @@ object CP {
           "-mo /tmp.cpsign " +
           "-mt 3 " +
           "--license cpsign0.5-standard.license && " +
+          "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
 
     // Write model to file
