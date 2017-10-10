@@ -25,7 +25,7 @@ object CP {
       .map(
         imageName = "mcapuccini/cpsign",
         command = "java -Xms384m -Xmx1536m -jar cpsign-0.6.1.jar train " +
-          "-t data_train.sdf " +
+          "-t data_small_train.sdf " +
           "-mn out " +
           "-mo /tmp.cpsign " +
           "-c 1 " +
