@@ -31,7 +31,6 @@ object CP {
           "-c 1 " +
           "--labels 0 1 " +
           "-rn class " +
-          "-i libsvm " +
           "--license cpsign0.6-standard.license && " +
           "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
