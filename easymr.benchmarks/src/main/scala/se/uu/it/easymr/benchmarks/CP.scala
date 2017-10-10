@@ -25,12 +25,10 @@ object CP {
       .map(
         imageName = "mcapuccini/cpsign",
         command = "java -Xms384m -Xmx1536m -jar cpsign-0.6.1.jar train " +
-          "-t data_train.sdf " +
+          "-t data_train.smi " +
           "-mn out " +
           "-mo /tmp.cpsign " +
-          "-c 1 " +
-          "--labels 0 1 " +
-          "-rn class " +
+          "-c 2 " +
           "--license cpsign0.6-standard.license && " +
           "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
