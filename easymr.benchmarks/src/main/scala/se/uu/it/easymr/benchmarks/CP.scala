@@ -36,7 +36,7 @@ object CP {
       .map(
         imageName = "mcapuccini/cpsign",
         command = "java -jar cpsign-0.6.1.jar train " +
-          "-t data_small_train.sdf " +
+          "-t data_train.sdf " +
           "-mn out " +
           "-mo /tmp.cpsign " +
           "-c 1 " +
@@ -51,7 +51,7 @@ object CP {
         command = "base64 -d < /in.txt > /model.cpsign && " +
           "java -jar cpsign-0.6.1.jar predict " +
           "-m /model.cpsign " +
-          "-p data_small_test.sdf " +
+          "-p data_test.sdf " +
           "-c 1 " +
           "-co 0.8 " +
           "-o /out.txt " +
