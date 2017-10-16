@@ -71,6 +71,7 @@ object CP {
     predictions.collect.foreach {
       case (title, pv0, pv1) => pw.println(s"${title},${pv0},${pv1}")
     }
+    pw.close
 
     // Stop Spark
     sc.stop
