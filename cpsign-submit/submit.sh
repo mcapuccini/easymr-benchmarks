@@ -7,7 +7,7 @@ export TMPDIR=/tmp/ram
   --class se.uu.it.easymr.benchmarks.CP \
   --master spark://spark-master.node.dc1.consul:7077 \
   --executor-memory 2G \
-  --conf spark.driver.memory=4G \
+  --conf spark.driver.memory=2G \
   --total-executor-cores $CPU \
   --conf spark.executorEnv.TMPDIR=/tmp/ram \
   $JAR \
