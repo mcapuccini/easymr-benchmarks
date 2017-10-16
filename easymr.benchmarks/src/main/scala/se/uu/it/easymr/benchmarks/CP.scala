@@ -1,12 +1,16 @@
 package se.uu.it.easymr.benchmarks
 
-import java.io.FileOutputStream
+import java.io.PrintWriter
 
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
+import org.json4s.jvalue2monadic
+import org.json4s.native.JsonMethods.compact
+import org.json4s.native.JsonMethods.parse
+import org.json4s.native.JsonMethods.render
+import org.json4s.string2JsonInput
 
 import se.uu.it.easymr.EasyMapReduce
-import sun.misc.BASE64Decoder
 
 object CP {
 
@@ -18,14 +22,21 @@ object CP {
 
     val rdd = sc.parallelize(1 to args(0).toInt, args(1).toInt).map(_.toString)
 
-    val res = new EasyMapReduce(rdd)
+    // Define median primitive
+    val median = (seq: Seq[Double]) => if (seq.length % 2 == 0) {
+      (seq(seq.length / 2) + seq(seq.length / 2 - 1)) / 2
+    } else {
+      seq.sortWith(_ < _)(seq.length / 2)
+    }
+
+    val predictions = new EasyMapReduce(rdd)
+      .setInputMountPoint("/in.txt")
       .setOutputMountPoint("/out.txt")
-      .setReduceInputMountPoint1("/model1.txt")
-      .setReduceInputMountPoint2("/model2.txt")
+      // Train
       .map(
         imageName = "mcapuccini/cpsign",
-        command = "java -Xms384m -Xmx1536m -jar cpsign-0.6.1.jar train " +
-          "-t data_train.sdf " +
+        command = "java -jar cpsign-0.6.1.jar train " +
+          "-t data_small_train.sdf " +
           "-mn out " +
           "-mo /tmp.cpsign " +
           "-c 1 " +
@@ -34,24 +45,32 @@ object CP {
           "--license cpsign0.6-standard.license && " +
           "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
-      .reduce(
+      // Predict
+      .map(
         imageName = "mcapuccini/cpsign",
-        command =
-          "base64 -d < /model1.txt > /model1.cpsign && " +
-          "base64 -d < /model2.txt > /model2.cpsign && " +
-          "java -Xms384m -Xmx1536m -jar cpsign-0.6.1.jar fast-aggregate " +
-          "-m /model1.cpsign /model2.cpsign " + 
-          "-mo /tmp.cpsign " + 
-          "--license cpsign0.6-standard.license && " +
-          "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
-          "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
+        command = "base64 -d < /in.txt > /model.cpsign && " +
+          "java -jar cpsign-0.6.1.jar predict " +
+          "-m /model.cpsign " +
+          "-p data_small_test.sdf " +
+          "-c 1 " +
+          "-co 0.8 " +
+          "-o /out.txt " +
+          "--license cpsign0.6-standard.license")
+      .getRDD.map { json =>
+        val parsedJson = parse(json)
+        val title = compact(render(parsedJson \ "molecule" \ "cdk:Title"))
+        val pv0 = compact(render(parsedJson \ "prediction" \ "pValues" \ "0")).toDouble
+        val pv1 = compact(render(parsedJson \ "prediction" \ "pValues" \ "1")).toDouble
+        (title, (Seq(pv0), Seq(pv1)))
+      }
+      .reduceByKey { case ((seq0a, seq1a), (seq0b, seq1b)) => (seq0a ++ seq0b, seq1a ++ seq1b) }
+      .map { case (title, (s0, s1)) => (title, median(s0), median(s1)) }
 
-    // Write model to file
-    val base64 = new BASE64Decoder()
-    val modelBytes = base64.decodeBuffer(res)
-    val fos = new FileOutputStream("model.cpsign")
-    fos.write(modelBytes)
-    fos.close()
+    // Write in CSV format
+    val pw = new PrintWriter("predictions.csv")
+    predictions.collect.foreach {
+      case (title, pv0, pv1) => pw.println(s"${title},${pv0},${pv1}")
+    }
 
     // Stop Spark
     sc.stop
