@@ -14,13 +14,26 @@ import se.uu.it.easymr.EasyMapReduce
 
 object CP {
 
+  // Fixing random seeds to compare with serial training
+  val seeds = Seq(
+      2200, 7872, 1935, 3120, 3723, 6791, 6244, 7278, 3058, 1465, 
+      2986, 9136, 3465, 2453, 8290, 4438, 4020, 1356, 3779, 5965, 
+      5170, 2486, 4411, 8325, 7623, 3151, 7935, 1520, 2191, 2638, 
+      1200, 2061, 6602, 5971, 1422, 1422, 2677, 3478, 6123, 8957, 
+      2010, 1220, 7410, 5776, 1251, 7002, 2742, 6092, 1912, 6547, 
+      8473, 3477, 3709, 4421, 9830, 3398, 5129, 7782, 8370, 3166, 
+      4726, 6767, 4458, 5676, 5708, 1656, 2076, 9496, 3923, 4416, 
+      5770, 1715, 2434, 6470, 7350, 1894, 2142, 5726, 3147, 9882, 
+      9855, 7206, 6553, 7340, 1218, 7717, 1766, 6573, 7131, 4484, 
+      4867, 4281, 2174, 3990, 8124, 9387, 6062, 3466, 7329, 1921)
+
   def main(args: Array[String]) {
 
     val conf = new SparkConf()
       .setAppName("CP sign")
     val sc = new SparkContext(conf)
 
-    val rdd = sc.parallelize(1 to args(0).toInt, args(1).toInt).map(_.toString)
+    val rdd = sc.parallelize(seeds, args(0).toInt).map(_.toString)
 
     // Define median primitive
     val median = (seq: Seq[Double]) => if (seq.length % 2 == 0) {
@@ -43,6 +56,7 @@ object CP {
           "--labels 0 1 " +
           "-rn class " +
           "--license cpsign0.6-standard.license && " +
+          "--seed $(cat /in.txt | tr -d '\n') " +
           "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
       // Predict
@@ -55,7 +69,6 @@ object CP {
           "-c 1 " +
           "-co 0.8 " +
           "-o /out.txt " +
-          "--seed 12345 " + 
           "--license cpsign0.6-standard.license")
       .getRDD.map { json =>
         val parsedJson = parse(json)
@@ -70,10 +83,10 @@ object CP {
     // Write in CSV format
     val pw = new PrintWriter("predictions.csv")
     predictions.collect.foreach {
-      case (title, pv0, pv1) => 
-          val rpv0 = BigDecimal(pv0).setScale(3, BigDecimal.RoundingMode.HALF_UP).toString
-          val rpv1 = BigDecimal(pv1).setScale(3, BigDecimal.RoundingMode.HALF_UP).toString
-          pw.println(s"${title},${rpv0},${rpv1}")
+      case (title, pv0, pv1) =>
+        val rpv0 = BigDecimal(pv0).setScale(3, BigDecimal.RoundingMode.HALF_UP).toString
+        val rpv1 = BigDecimal(pv1).setScale(3, BigDecimal.RoundingMode.HALF_UP).toString
+        pw.println(s"${title},${rpv0},${rpv1}")
     }
     pw.close
 
