@@ -58,13 +58,13 @@ object CP {
           "--license cpsign0.6-standard.license")
       .getRDD.map { json =>
         val parsedJson = parse(json)
-        val title = compact(render(parsedJson \ "molecule" \ "cdk:Title"))
+        val key = compact(render(parsedJson \ "molecule" \ "n"))
         val pv0 = compact(render(parsedJson \ "prediction" \ "pValues" \ "0")).toDouble
         val pv1 = compact(render(parsedJson \ "prediction" \ "pValues" \ "1")).toDouble
-        (title, (Seq(pv0), Seq(pv1)))
+        (key, (Seq(pv0), Seq(pv1)))
       }
       .reduceByKey { case ((seq0a, seq1a), (seq0b, seq1b)) => (seq0a ++ seq0b, seq1a ++ seq1b) }
-      .map { case (title, (s0, s1)) => (title, median(s0), median(s1)) }
+      .map { case (key, (s0, s1)) => (key, median(s0), median(s1)) }
 
     // Write in CSV format
     val pw = new PrintWriter("predictions.csv")
