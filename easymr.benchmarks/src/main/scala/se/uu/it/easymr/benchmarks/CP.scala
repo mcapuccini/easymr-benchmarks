@@ -33,7 +33,7 @@ object CP {
       .setAppName("CP sign")
     val sc = new SparkContext(conf)
 
-    val rdd = sc.parallelize(seeds, args(0).toInt).map(_.toString)
+    val rdd = sc.parallelize(seeds.map(_.toString), args(0).toInt)
 
     // Define median primitive
     val median = (seq: Seq[Double]) => if (seq.length % 2 == 0) {
