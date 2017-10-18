@@ -55,6 +55,7 @@ object CP {
           "-c 1 " +
           "-co 0.8 " +
           "-o /out.txt " +
+          "--seed 12345 " + 
           "--license cpsign0.6-standard.license")
       .getRDD.map { json =>
         val parsedJson = parse(json)
@@ -70,8 +71,8 @@ object CP {
     val pw = new PrintWriter("predictions.csv")
     predictions.collect.foreach {
       case (title, pv0, pv1) => 
-          val rpv0 = BigDecimal(pv0).setScale(3, BigDecimal.RoundingMode.HALF_UP).toDouble
-          val rpv1 = BigDecimal(pv1).setScale(3, BigDecimal.RoundingMode.HALF_UP).toDouble
+          val rpv0 = BigDecimal(pv0).setScale(3, BigDecimal.RoundingMode.HALF_UP).toString
+          val rpv1 = BigDecimal(pv1).setScale(3, BigDecimal.RoundingMode.HALF_UP).toString
           pw.println(s"${title},${rpv0},${rpv1}")
     }
     pw.close
