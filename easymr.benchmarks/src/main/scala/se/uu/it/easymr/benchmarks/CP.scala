@@ -55,8 +55,8 @@ object CP {
           "-c 1 " +
           "--labels 0 1 " +
           "-rn class " +
-          "--license cpsign0.6-standard.license && " +
           "--seed $(cat /in.txt | tr -d '\n') " +
+          "--license cpsign0.6-standard.license && " +
           "[ -e tmp.cpsign ] && " + // workaround for cpsign bug (it always exits with 0)
           "base64 < /tmp.cpsign | tr -d '\n' > /out.txt")
       // Predict
