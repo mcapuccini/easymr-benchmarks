@@ -72,7 +72,7 @@ object CP {
       case (title, pv0, pv1) => 
           val rpv0 = BigDecimal(pv0).setScale(3, BigDecimal.RoundingMode.HALF_UP).toDouble
           val rpv1 = BigDecimal(pv1).setScale(3, BigDecimal.RoundingMode.HALF_UP).toDouble
-          pw.println(s"${title},${pv0},${pv1}")
+          pw.println(s"${title},${rpv0},${rpv1}")
     }
     pw.close
 
