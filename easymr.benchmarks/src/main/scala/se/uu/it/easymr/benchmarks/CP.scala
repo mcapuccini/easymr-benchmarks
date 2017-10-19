@@ -37,7 +37,8 @@ object CP {
 
     // Define median primitive
     val median = (seq: Seq[Double]) => if (seq.length % 2 == 0) {
-      (seq(seq.length / 2) + seq(seq.length / 2 - 1)) / 2
+      val sort = seq.sortWith(_ < _)
+      (sort(sort.length / 2) + sort(sort.length / 2 - 1)) / 2
     } else {
       seq.sortWith(_ < _)(seq.length / 2)
     }
