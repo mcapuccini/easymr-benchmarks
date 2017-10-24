@@ -11,5 +11,5 @@ export TMPDIR=/tmp/ram
   --total-executor-cores $CPU \
   --conf spark.executorEnv.TMPDIR=/tmp/ram \
   $JAR \
-  $NCP $NSPL 
+  $NSPL 
 
