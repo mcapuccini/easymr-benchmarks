@@ -1,0 +1,183 @@
+[
+    {
+        "Id": "a0336a0b802fdd7c204bd1440d8c283e3e9889ac20e1045fe6c6d96bfdf42748",
+        "Created": "2017-10-23T11:04:42.456756641Z",
+        "Path": "/serial.sh",
+        "Args": [],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-10-23T11:04:42.839495162Z",
+            "FinishedAt": "2017-10-23T14:16:37.094697247Z"
+        },
+        "Image": "sha256:6c16192164003ed429dba36411c509dc922c23ea57af52391d0a4fbfac3ddf47",
+        "ResolvConfPath": "/var/lib/docker/containers/a0336a0b802fdd7c204bd1440d8c283e3e9889ac20e1045fe6c6d96bfdf42748/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/a0336a0b802fdd7c204bd1440d8c283e3e9889ac20e1045fe6c6d96bfdf42748/hostname",
+        "HostsPath": "/var/lib/docker/containers/a0336a0b802fdd7c204bd1440d8c283e3e9889ac20e1045fe6c6d96bfdf42748/hosts",
+        "LogPath": "/var/lib/docker/containers/a0336a0b802fdd7c204bd1440d8c283e3e9889ac20e1045fe6c6d96bfdf42748/a0336a0b802fdd7c204bd1440d8c283e3e9889ac20e1045fe6c6d96bfdf42748-json.log",
+        "Name": "/cp_serial_full_2",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/ubuntu/easymr-benchmarks/cpsign-submit/serial.sh:/serial.sh"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/ubuntu/easymr-benchmarks/cpsign-submit/serial.sh",
+                "Destination": "/serial.sh",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "a0336a0b802f",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "JAVA_HOME=/docker-java-home/jre",
+                "JAVA_VERSION=7u151",
+                "JAVA_DEBIAN_VERSION=7u151-2.6.11-1~deb8u1"
+            ],
+            "Cmd": [
+                "/serial.sh"
+            ],
+            "Image": "mcapuccini/cpsign",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e31be0dadf405e7d88e0b586f599b9fddac53ea5ef2a247186f8d05bcfecb67e",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/e31be0dadf40",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "a48d15f2552de14e9efddf8c2576fc56852878de7ddf6cdcb9af40386038f8b6",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": ""
+                }
+            }
+        }
+    }
+]
