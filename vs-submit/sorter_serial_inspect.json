@@ -1,0 +1,190 @@
+[
+    {
+        "Id": "b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c",
+        "Created": "2017-10-26T19:59:37.652757415Z",
+        "Path": "sdsorter",
+        "Args": [
+            "-reversesort=FRED Chemgauss4 score",
+            "-keep-tag=FRED Chemgauss4 score",
+            "-nbest=3",
+            "/host/output.sdf",
+            "/host/serial_results.sdf"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-10-26T19:59:38.120951791Z",
+            "FinishedAt": "2017-10-26T19:59:51.056371918Z"
+        },
+        "Image": "sha256:b161bfa63b33f4caf4ce3741a3b277fdf0c04c8e8654109ab5aab0ffa6cb548e",
+        "ResolvConfPath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/hostname",
+        "HostsPath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/hosts",
+        "LogPath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c-json.log",
+        "Name": "/sorting_full",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/ubuntu/easymr-benchmarks/vs-submit:/host"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": null,
+            "Name": "aufs"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/ubuntu/easymr-benchmarks/vs-submit",
+                "Destination": "/host",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "b53db95520e6",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "sdsorter",
+                "-reversesort=FRED Chemgauss4 score",
+                "-keep-tag=FRED Chemgauss4 score",
+                "-nbest=3",
+                "/host/output.sdf",
+                "/host/serial_results.sdf"
+            ],
+            "Image": "mcapuccini/sdsorter",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "9f727d76a2988e8847a42410802067f97da93eb2de07fe8018642e7dddd9d2d0",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/9f727d76a298",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "a48d15f2552de14e9efddf8c2576fc56852878de7ddf6cdcb9af40386038f8b6",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": ""
+                }
+            }
+        }
+    }
+]
