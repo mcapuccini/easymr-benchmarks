@@ -1,0 +1,5 @@
+**/*.sdf
+**/*.smi
+**/*.jar
+**/*license*
+**/*.tar.gz
