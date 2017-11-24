@@ -1,7 +1,7 @@
 [
     {
-        "Id": "b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c",
-        "Created": "2017-10-26T19:59:37.652757415Z",
+        "Id": "e17be2b991b2f01a11854707f112b6033c51846041cd27367e1bdfd1d13b6e78",
+        "Created": "2017-11-24T08:36:28.927626889Z",
         "Path": "sdsorter",
         "Args": [
             "-reversesort=FRED Chemgauss4 score",
@@ -20,14 +20,14 @@
             "Pid": 0,
             "ExitCode": 0,
             "Error": "",
-            "StartedAt": "2017-10-26T19:59:38.120951791Z",
-            "FinishedAt": "2017-10-26T19:59:51.056371918Z"
+            "StartedAt": "2017-11-24T08:36:29.710438183Z",
+            "FinishedAt": "2017-11-24T08:36:51.964516769Z"
         },
         "Image": "sha256:b161bfa63b33f4caf4ce3741a3b277fdf0c04c8e8654109ab5aab0ffa6cb548e",
-        "ResolvConfPath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/hostname",
-        "HostsPath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/hosts",
-        "LogPath": "/var/lib/docker/containers/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c/b53db95520e66076ffa44a1c64f33a1b49036890fea90e0cb3a147cf90903b6c-json.log",
+        "ResolvConfPath": "/var/lib/docker/containers/e17be2b991b2f01a11854707f112b6033c51846041cd27367e1bdfd1d13b6e78/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/e17be2b991b2f01a11854707f112b6033c51846041cd27367e1bdfd1d13b6e78/hostname",
+        "HostsPath": "/var/lib/docker/containers/e17be2b991b2f01a11854707f112b6033c51846041cd27367e1bdfd1d13b6e78/hosts",
+        "LogPath": "/var/lib/docker/containers/e17be2b991b2f01a11854707f112b6033c51846041cd27367e1bdfd1d13b6e78/e17be2b991b2f01a11854707f112b6033c51846041cd27367e1bdfd1d13b6e78-json.log",
         "Name": "/sorting_full",
         "RestartCount": 0,
         "Driver": "aufs",
@@ -37,7 +37,7 @@
         "ExecIDs": null,
         "HostConfig": {
             "Binds": [
-                "/home/ubuntu/easymr-benchmarks/vs-submit:/host"
+                "/home/ubuntu/easymr-benchmarks/vs-submit/data:/host"
             ],
             "ContainerIDFile": "",
             "LogConfig": {
@@ -116,7 +116,7 @@
         "Mounts": [
             {
                 "Type": "bind",
-                "Source": "/home/ubuntu/easymr-benchmarks/vs-submit",
+                "Source": "/home/ubuntu/easymr-benchmarks/vs-submit/data",
                 "Destination": "/host",
                 "Mode": "",
                 "RW": true,
@@ -124,7 +124,7 @@
             }
         ],
         "Config": {
-            "Hostname": "b53db95520e6",
+            "Hostname": "e17be2b991b2",
             "Domainname": "",
             "User": "",
             "AttachStdin": false,
@@ -153,12 +153,12 @@
         },
         "NetworkSettings": {
             "Bridge": "",
-            "SandboxID": "9f727d76a2988e8847a42410802067f97da93eb2de07fe8018642e7dddd9d2d0",
+            "SandboxID": "34abf86390fd976f1aa23aaa7a84e9d5d33d0660c6e3a2e1eb8711501f4ec9ee",
             "HairpinMode": false,
             "LinkLocalIPv6Address": "",
             "LinkLocalIPv6PrefixLen": 0,
             "Ports": {},
-            "SandboxKey": "/var/run/docker/netns/9f727d76a298",
+            "SandboxKey": "/var/run/docker/netns/34abf86390fd",
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
             "EndpointID": "",
@@ -174,7 +174,7 @@
                     "IPAMConfig": null,
                     "Links": null,
                     "Aliases": null,
-                    "NetworkID": "a48d15f2552de14e9efddf8c2576fc56852878de7ddf6cdcb9af40386038f8b6",
+                    "NetworkID": "11ebdfdc0c3cfeaeee293e798446d4a29f31e63336c6425098e283c3a8f770b4",
                     "EndpointID": "",
                     "Gateway": "",
                     "IPAddress": "",

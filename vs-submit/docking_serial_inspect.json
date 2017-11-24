@@ -1,7 +1,7 @@
 [
     {
-        "Id": "991c6b3f08c4d943f4b25d252eab6d77d8a3bb8b08a7032308caaaa708627323",
-        "Created": "2017-10-26T09:29:57.804951896Z",
+        "Id": "d7542bffa4ddf45ec045d4c90807fb7b8b5f4044626ef03d1e551040c555a36d",
+        "Created": "2017-11-23T13:21:03.810388852Z",
         "Path": "fred",
         "Args": [
             "-receptor",
@@ -26,14 +26,14 @@
             "Pid": 0,
             "ExitCode": 0,
             "Error": "",
-            "StartedAt": "2017-10-26T09:29:58.262697782Z",
-            "FinishedAt": "2017-10-26T19:59:37.579494367Z"
+            "StartedAt": "2017-11-23T13:21:04.981089451Z",
+            "FinishedAt": "2017-11-24T08:36:28.80619873Z"
         },
-        "Image": "sha256:94b24100d571e7717516a66245b7983dcc9a12fa74ea5ced8bc1971d93acf5e7",
-        "ResolvConfPath": "/var/lib/docker/containers/991c6b3f08c4d943f4b25d252eab6d77d8a3bb8b08a7032308caaaa708627323/resolv.conf",
-        "HostnamePath": "/var/lib/docker/containers/991c6b3f08c4d943f4b25d252eab6d77d8a3bb8b08a7032308caaaa708627323/hostname",
-        "HostsPath": "/var/lib/docker/containers/991c6b3f08c4d943f4b25d252eab6d77d8a3bb8b08a7032308caaaa708627323/hosts",
-        "LogPath": "/var/lib/docker/containers/991c6b3f08c4d943f4b25d252eab6d77d8a3bb8b08a7032308caaaa708627323/991c6b3f08c4d943f4b25d252eab6d77d8a3bb8b08a7032308caaaa708627323-json.log",
+        "Image": "sha256:188e7226bacfbce83e47db88cfcb5a8b679ca09a11aafd9199b62f2b40ee4b8a",
+        "ResolvConfPath": "/var/lib/docker/containers/d7542bffa4ddf45ec045d4c90807fb7b8b5f4044626ef03d1e551040c555a36d/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d7542bffa4ddf45ec045d4c90807fb7b8b5f4044626ef03d1e551040c555a36d/hostname",
+        "HostsPath": "/var/lib/docker/containers/d7542bffa4ddf45ec045d4c90807fb7b8b5f4044626ef03d1e551040c555a36d/hosts",
+        "LogPath": "/var/lib/docker/containers/d7542bffa4ddf45ec045d4c90807fb7b8b5f4044626ef03d1e551040c555a36d/d7542bffa4ddf45ec045d4c90807fb7b8b5f4044626ef03d1e551040c555a36d-json.log",
         "Name": "/docking_full",
         "RestartCount": 0,
         "Driver": "aufs",
@@ -43,7 +43,7 @@
         "ExecIDs": null,
         "HostConfig": {
             "Binds": [
-                "/home/ubuntu/easymr-benchmarks/vs-submit:/host"
+                "/home/ubuntu/easymr-benchmarks/vs-submit/data:/host"
             ],
             "ContainerIDFile": "",
             "LogConfig": {
@@ -122,7 +122,7 @@
         "Mounts": [
             {
                 "Type": "bind",
-                "Source": "/home/ubuntu/easymr-benchmarks/vs-submit",
+                "Source": "/home/ubuntu/easymr-benchmarks/vs-submit/data",
                 "Destination": "/host",
                 "Mode": "",
                 "RW": true,
@@ -130,7 +130,7 @@
             }
         ],
         "Config": {
-            "Hostname": "991c6b3f08c4",
+            "Hostname": "d7542bffa4dd",
             "Domainname": "",
             "User": "",
             "AttachStdin": false,
@@ -166,12 +166,12 @@
         },
         "NetworkSettings": {
             "Bridge": "",
-            "SandboxID": "30443f31f7c86321186ae5a5ab17979335fa90986e1c80f57f5150082937824a",
+            "SandboxID": "281a39b1bda362c7b00b272deae8e34570c6057a510aeb4d7b7ff44d5956c3c0",
             "HairpinMode": false,
             "LinkLocalIPv6Address": "",
             "LinkLocalIPv6PrefixLen": 0,
             "Ports": {},
-            "SandboxKey": "/var/run/docker/netns/30443f31f7c8",
+            "SandboxKey": "/var/run/docker/netns/281a39b1bda3",
             "SecondaryIPAddresses": null,
             "SecondaryIPv6Addresses": null,
             "EndpointID": "",
@@ -187,7 +187,7 @@
                     "IPAMConfig": null,
                     "Links": null,
                     "Aliases": null,
-                    "NetworkID": "a48d15f2552de14e9efddf8c2576fc56852878de7ddf6cdcb9af40386038f8b6",
+                    "NetworkID": "11ebdfdc0c3cfeaeee293e798446d4a29f31e63336c6425098e283c3a8f770b4",
                     "EndpointID": "",
                     "Gateway": "",
                     "IPAddress": "",
