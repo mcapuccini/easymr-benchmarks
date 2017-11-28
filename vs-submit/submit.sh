@@ -3,6 +3,7 @@
 JAR=~/easymr-benchmarks/easymr.benchmarks/target/easymr.benchmarks-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 export TMPDIR=/tmp/ram
 SAMPLE=1
+SWIFT_JAR=/opt/hadoop/default/share/hadoop/common/lib/hadoop-openstack-2.7.1.jar
 
 /opt/spark/default/bin/spark-submit \
   --class se.uu.it.easymr.benchmarks.VS \
@@ -11,7 +12,9 @@ SAMPLE=1
   --conf spark.driver.memory=2G \
   --total-executor-cores $CPU \
   --conf spark.executorEnv.TMPDIR=/tmp/ram \
+  --conf spark.driver.extraClassPath=$SWIFT_JAR \
+  --conf spark.executor.extraClassPath=$SWIFT_JAR \
   $JAR \
-  'hdfs://spark-master.node.dc1.consul:9000/ubuntu/*.sdf' \
+  'swift://VS.uppmax/aksci.sdf' \
   $SAMPLE
 
