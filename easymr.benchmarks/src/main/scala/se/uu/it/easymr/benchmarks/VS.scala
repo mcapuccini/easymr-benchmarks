@@ -15,7 +15,7 @@ object VS {
     // Set custom delimiter
     sc.hadoopConfiguration.set("textinputformat.record.delimiter", "\n$$$$\n")
 
-    val mols = sc.textFile(args(0)).sample(false, args(1).toDouble)
+    val mols = sc.textFile(args(0),args(1).toInt)
     val hitsParallel = new EasyMapReduce(mols)
       .setInputMountPoint("/input.sdf")
       .setOutputMountPoint("/output.sdf")
