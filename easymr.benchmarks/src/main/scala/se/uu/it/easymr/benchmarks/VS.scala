@@ -11,6 +11,7 @@ object VS {
     val conf = new SparkConf()
       .setAppName("Virtual Screening")
     val sc = new SparkContext(conf)
+    sc.addJar(args(2)) // add swift integration Jar to each node
     
     // Set custom delimiter
     sc.hadoopConfiguration.set("textinputformat.record.delimiter", "\n$$$$\n")
